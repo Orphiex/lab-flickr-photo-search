@@ -40,9 +40,14 @@ $(document).ready(function(){
     });
   };
 
+
   function displayPictures(elem, index){
-    var $newPicture = ('<div><img src="'+elem.media.m+'"></div>');
-    $displayDestination.append($newPicture);
+    var $newPicture = ('<div class="col-xs-3" data-id="'+index+'"><img class="thumbnail" src="'+elem.media.m+'"></div>');
+    var createRow = '<div class="row"></div>';
+    if (index % 4 === 0) {
+      $('#images').append(createRow);
+    }
+    $('#images > .row:last').append($newPicture);
   }
 
   var init = function(){
